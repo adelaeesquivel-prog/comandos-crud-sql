@@ -41,6 +41,18 @@ VALUES (
 );
 ```
 
+##  INSERT da tabela lojas
+
+```sql
+INSERT INTO lojas (nome) 
+VALUES 
+    ('Casas Bahia'),
+    ('Shopping Zona Leste'),
+    ('Bazar das coisas'),
+    ('Americanas');
+```
+
+
 
 
  
