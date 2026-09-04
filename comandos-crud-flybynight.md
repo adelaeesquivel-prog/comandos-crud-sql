@@ -30,6 +30,15 @@ VALUES (
     100,
     4 -- id do fornecedor eletronicos trabajara
     );
+
+INSERT INTO produtos (nome, descricao, preco, quantidade, fornecedor_id)
+VALUES (
+    'TV led',
+    'Tela de 50 polegadas, resolução 4k, 4 entradas HDMI',
+     3420,
+     12,
+      1 -- id fornecedor eletronico tabajara
+);
 ```
 
 
