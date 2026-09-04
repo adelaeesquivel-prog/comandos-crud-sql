@@ -39,10 +39,9 @@ VALUES (
      12,
       1 -- id fornecedor eletronico tabajara
 );
+
 ```
-
 ##  INSERT da tabela lojas
-
 ```sql
 INSERT INTO lojas (nome) 
 VALUES 
@@ -50,6 +49,20 @@ VALUES
     ('Shopping Zona Leste'),
     ('Bazar das coisas'),
     ('Americanas');
+```
+##  INSERT da tabela Lojas-Produtos
+
+esta é uma tabelaintermediaria(tambem conhecida como **Tabela Pivot**), ou seja , ela se relaciona com outras duas tabelas: **produtos** e **lojas** atraves de chaves estrangeiras.
+```sql
+INSERT INTO lojas_produtos (loja_id ,produto_id, estoque) VALUES (2, 1 ,20);
+
+INSERT INTO lojas_produtos (loja_id ,produto_id, estoque) VALUES (4, 2 ,3);
+INSERT INTO lojas_produtos (loja_id ,produto_id, estoque) VALUES (2, 3 ,10);
+INSERT INTO lojas_produtos (loja_id ,produto_id, estoque) VALUES (1, 1 ,5);
+INSERT INTO lojas_produtos (loja_id ,produto_id, estoque) VALUES (4, 1 ,2);
+
+
+
 ```
 
 
