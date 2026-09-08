@@ -92,6 +92,16 @@ VALUES (
 );
 ```
 
+## UPDATE  na tabela fornecedores
+```sql
+UPDATE fornecedores SET nome = 'Mundo dos Games'
+WHERE id = 2;
+```
+
+## DELETE na tabela fornecedores
+```sql
+DELETE FROM fornecedores WHERE id = 5;
+```
 
 
 

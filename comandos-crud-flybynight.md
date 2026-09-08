@@ -80,6 +80,9 @@ UPDATE produtos SET preco = 2999, quantidade = 5 WHERE id = 3;
 UPDATE lojas_produtos SET estoque = 4 WHERE loja_id = 2 AND produto_id = 1;
 
 -- SQL aceita operadores logicos: AND (E), OR (OU),NOT(NAO)
-
 ```
- 
+
+## DELETE na tabela fornecedores
+```sql
+DELETE FROM fornecedores WHERE id = 5;
+```
