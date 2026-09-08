@@ -92,15 +92,41 @@ VALUES (
 );
 ```
 
-## UPDATE  na tabela fornecedores
+# UPDATE em usuarios
 ```sql
-UPDATE fornecedores SET nome = 'Mundo dos Games'
-WHERE id = 2;
+UPDATE usuarios SET nome = 'Junior Alvares'
+WHERE id = 1;
+```
+```sql
+UPDATE usuarios SET tipo = 'admin'
+WHERE id = 3;
+```
+# UPDATE em categoria
+```sql
+UPDATE categorias SET nome = 'Tecnologia-IA'
+WHERE id = 1;
 ```
 
-## DELETE na tabela fornecedores
+
+# UPDATE em noticias
 ```sql
-DELETE FROM fornecedores WHERE id = 5;
+UPDATE noticias SET titulo = 'Conhecendo a tecnologia para as escolas com realidade virtual'
+WHERE id = 1;
+```
+```sql
+UPDATE noticias SET destaque = 'sim'
+WHERE id = 4;
+```
+```sql
+UPDATE noticias SET categoria_id = 2
+WHERE categoria_id = 1;
+```
+
+# DELETE 
+```sql
+DELETE FROM noticias WHERE id = 3;
+DELETE FROM categorias WHERE id = 1;
+DELETE FROM usuarios WHERE id = 3;
 ```
 
 
