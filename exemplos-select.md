@@ -136,4 +136,104 @@ ORDER BY preco DESC;
 SELECT nome, preco FROM produtos
 ORDER BY preco DESC, nome ASC;
 ```
+## Funçoes de agregação 
+
+Funções de agregação realizam calculos ou processos em registros de um resultado.
+Entre as principais:
+
+- `COUNT()` -> conta registros 
+- `SUM()` -> soma valores
+- `AVG()` -> calcula a média de valores
+- `MIN()` -> encontra menor valor
+- `MAX()` -> encontra maior valor
+- `ROUND()` -> arredonda valores e define casas decimais 
+
+### COUNT
+contando quantos registros existem na tabela produtos
+```sql
+SELECT  COUNT(*) AS total FROM produtos;
+```
+
+### SUM
+Somar a quantidade de todos os produtos da tabela:
+```sql
+SELECT  SUM(quantidade) AS "Quantidade total" FROM produtos;
+```
+### AVG
+Calcular a media dos preços dos produtos:
+```sql
+SELECT  AVG(preco) AS "Média dos preços" FROM produtos;
+```
+### MIN
+Retornar ao menor preco existente
+```sql
+SELECT  MIN(preco) AS menor_preco FROM produtos;
+```
+
+### MAX
+Retornar ao maior preco existente:
+```sql
+SELECT  MAX(preco) AS maior_preco FROM produtos;
+```
+
+### COMBINANDO AGREGAÇÕES
+
+```sql
+SELECT  COUNT(*) AS quantidades_produtos,
+        MIN(preco) AS menor_preco,
+        MAX(preco) AS maior_preco,
+        ROUND(AVG(preco),2) AS preco_medio
+FROM produtos;
+```
+**ATENÇÃO** Não coloque espaço entre o nome da função e os parenteses!
+
+## Recursos de agrupamento
+ 
+`GROUP BY` reune registros que possuem um determinado valor me comum.
+
+### Contando produtos de fornecedor
+ ```sql
+SELECT fornecedor_id, COUNT(*) AS total_produtos
+FROM produtos GROUP BY fornecedor_id;
+```
+### Determinando a média de preços por fornecedor
+ ```sql
+SELECT fornecedor_id, ROUND(AVG(preco) , 2) AS preco_medio
+FROM produtos GROUP BY fornecedor_id;
+```
+### HAVING
+ 
+`HAVING` permite filtrar os grupos criados pelo `GROUP BY`.
+**obs:** para usar o HAVING **precisa ter** GRUP BY
+
+Exemplo: mostrar somente os fornecedores que possuem pelo menos dois produtos cadastrados
+ ```sql
+SELECT fornecedor_id, COUNT(*) AS total_produtos
+FROM produtos GROUP BY fornecedor_id
+HAVING COUNT(*) >= 2;
+```
+### Combinando WHERE, GROUP BY, HAVING e ORDER BY
+Objetivos:
+1. Considera produtos com quantidade maior que zero
+2. Agrupa por fornecedor
+3. Calcula a quantidade e preço médio de cada grupo
+4. Mantém apenas fornecedores com pelo menos dois produtos
+5. Ordena os grupos pelo preço médio
+
+ ```sql
+SELECT 
+     fornecedor_id, 
+     COUNT(*) AS total_produtos,
+     ROUND(AVG(preco) , 2) AS preco_medio
+FROM produtos 
+WHERE quantidade > 0
+GROUP BY fornecedor_id
+HAVING total_produtos >= 2
+ORDER BY preco_medio DESC;
+```
+**obs:** ao combinar os produtos a ordem deve ser :
+1. WHERE
+2. GROUP BY/HAVING
+3. ORDER BY
+
 
